@@ -1,0 +1,64 @@
+@model List<StationeryWeek3.Mvc.ViewModels.StationeryListItemViewModel>
+
+<h2 class="mb-4">Search Product</h2>
+
+<form method="get">
+
+    <div class="row mb-3">
+
+        <div class="col-md-4">
+            <input
+                name="keyword"
+                class="form-control"
+                placeholder="Tên sản phẩm" />
+        </div>
+
+        <div class="col-md-3">
+            <input
+                name="category"
+                class="form-control"
+                placeholder="Loại sản phẩm" />
+        </div>
+
+        <div class="col-md-3">
+            <input
+                name="minPrice"
+                class="form-control"
+                placeholder="Giá tối thiểu" />
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100">
+                Search
+            </button>
+        </div>
+
+    </div>
+
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã</th>
+            <th>Tên</th>
+            <th>Loại</th>
+            <th>Giá</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Code</td>
+            <td>@item.Name</td>
+            <td>@item.Category</td>
+            <td>@item.PriceText</td>
+        </tr>
+    }
+
+    </tbody>
+
+</table>

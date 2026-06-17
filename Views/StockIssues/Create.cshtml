@@ -1,0 +1,111 @@
+@model StationeryWeek3.Mvc.ViewModels.CreateIssueViewModel
+
+@{
+    ViewData["Title"] = "Create Stock Issue";
+}
+
+<div class="container">
+
+    <h2 class="fw-bold mb-4">
+        Create Stock Issue with Transaction
+    </h2>
+
+    <div class="row">
+
+        <!-- FORM -->
+
+        <div class="col-md-5">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <h4 class="fw-bold mb-3">
+                        Issue Form
+                    </h4>
+
+                    <form asp-action="Create" method="post">
+
+                        <div class="mb-3">
+
+                            <label asp-for="StationeryId"
+                                   class="form-label fw-semibold">
+                                Stationery Id
+                            </label>
+
+                            <input asp-for="StationeryId"
+                                   class="form-control" />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Quantity"
+                                   class="form-label fw-semibold">
+                                Quantity
+                            </label>
+
+                            <input asp-for="Quantity"
+                                   class="form-control" />
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+                            Save
+                        </button>
+
+                        <a asp-controller="Stationeries"
+                           asp-action="Index"
+                           class="btn btn-secondary">
+                            Back
+                        </a>
+
+                    </form>
+
+                    <div asp-validation-summary="All"
+                         class="text-danger mt-3">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TRANSACTION FLOW -->
+
+        <div class="col-md-7">
+
+            <div class="card bg-info-subtle border border-primary border-info-subtle">
+
+                <div class="card-body">
+
+                    <h4 class="text-primary fw-bold">
+                        Transaction Flow
+                    </h4>
+
+                    <p class="text-primary">
+
+                        Create Stock Issue,
+                        create StockIssueItem,
+                        subtract stock quantity.
+
+                    </p>
+
+                    <p class="text-primary">
+
+                        If any step fails,
+                        rollback all changes.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

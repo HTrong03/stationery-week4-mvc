@@ -1,0 +1,59 @@
+@model StationeryWeek3.Mvc.ViewModels.StationeryListItemViewModel
+
+<div class="product-card">
+
+    <h4 class="product-title text-center">
+       <strong>@Model.Name</strong> 
+    </h4>
+
+    <p class="product-meta">
+        <strong>Mã:</strong> @Model.Code
+    </p>
+
+    <p class="product-meta">
+        <strong>Nhóm:</strong> @Model.Category
+    </p>
+
+    <p class="product-meta">
+        <strong>Thương hiệu:</strong> @Model.Brand
+    </p>
+
+    <p class="product-price">
+        <strong>Giá: </strong>@Model.PriceText
+    </p>
+
+    <p class="product-meta">
+        <strong>Số lượng:</strong> @Model.Quantity
+    </p>
+
+    <div class="mb-3">
+        @if (Model.StockStatus == "Còn hàng")
+        {
+            <span class="badge bg-success fs-6">
+                @Model.StockStatus
+            </span>
+        }
+        else if (Model.StockStatus == "Cần nhập thêm")
+        {
+            <span class="badge bg-warning text-dark fs-6">
+                @Model.StockStatus
+            </span>
+        }
+        else
+        {
+            <span class="badge bg-danger fs-6">
+                @Model.StockStatus
+            </span>
+        }
+    </div>
+
+    <div class="card-actions">
+        <a asp-controller="Stationeries"
+           asp-action="Detail"
+           asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            Xem chi tiết
+        </a>
+    </div>
+
+</div>

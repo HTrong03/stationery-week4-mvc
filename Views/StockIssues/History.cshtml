@@ -1,0 +1,33 @@
+@model List<StationeryWeek3.Mvc.Models.StockIssue>
+
+<h2>Stock Issue History</h2>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Issue Id</th>
+            <th>Date</th>
+            <th>Stationery</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var issue in Model)
+        {
+            foreach (var item in issue.Items)
+            {
+                <tr>
+                    <td>@issue.Id</td>
+                    <td>@issue.CreatedAt</td>
+                    <td>@item.Stationery?.Name</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,42 @@
+@model List<StationeryWeek3.Mvc.ViewModels.StationeryListItemViewModel>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h2 class="mb-1">Product Catalog</h2>
+        <p class="text-muted">
+            Đây là trang danh sách sản phẩm của cửa hàng.
+        </p>
+    </div>
+
+    <div>
+        <a asp-controller="Stationeries"
+           asp-action="Search"
+           class="btn btn-secondary">
+            Search Product
+        </a>
+
+        <a asp-controller="Stationeries"
+           asp-action="Create"
+           class="btn">
+            Create Product
+        </a>
+    </div>
+</div>
+
+<div class="alert alert-info d-flex align-items-center mb-3" style="width: 30%; background-color: rgb(231, 247, 255)">
+    <strong>ℹ️ Tổng số sản phẩm: @Model.Count</strong>
+</div>
+
+<div class="product-grid">
+    @foreach(var item in Model)
+    {
+        <partial name="_StationeryCard"
+                 model="item" />
+    }
+</div>

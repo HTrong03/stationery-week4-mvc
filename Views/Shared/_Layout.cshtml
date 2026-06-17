@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - StationeryWeek3.Mvc</title>
+
+    <script type="importmap"></script>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/StationeryWeek3.Mvc.styles.css"
+          asp-append-version="true" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+
+            <div class="container">
+
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    📚 Stationery MVC
+                </a>
+
+                <ul class="navbar-nav ms-4 gap-3">
+
+                    <!-- HOME -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active-nav" : "")"
+                           asp-controller="Home"
+                           asp-action="Index">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <!-- PRODUCTS -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Stationeries" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active-nav" : "")"
+                           asp-controller="Stationeries"
+                           asp-action="Index">
+
+                            Products
+
+                        </a>
+
+                    </li>
+
+                    <!-- STATS -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "Stats" ? "active-nav" : "")"
+                           asp-controller="Stationeries"
+                           asp-action="Stats">
+
+                            Stats
+
+                        </a>
+
+                    </li>
+
+                    <!-- SEARCH -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "Search" ? "active-nav" : "")"
+                           asp-controller="Stationeries"
+                           asp-action="Search">
+
+                            Search
+
+                        </a>
+
+                    </li>
+
+                    <!-- CREATE -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link @(ViewContext.RouteData.Values["Action"]?.ToString() == "Create" ? "active-nav" : "")"
+                           asp-controller="StockIssues"
+                           asp-action="Create">
+
+                            Create
+
+                        </a>
+
+                    </li>
+
+                    <!-- DataHealth -->
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                        asp-controller="DataHealth"
+                        asp-action="Index">
+                            Data Health
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                        asp-controller="StockIssues"
+                        asp-action="History">
+                            History
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <div class="container flex-grow-1">
+
+        <main role="main" class="pb-3">
+
+            @RenderBody()
+
+        </main>
+
+    </div>
+
+    <footer class="bg-dark text-white text-center p-3 mt-auto">
+
+        © 2026 - StationeryWeek3 MVC Lab03
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

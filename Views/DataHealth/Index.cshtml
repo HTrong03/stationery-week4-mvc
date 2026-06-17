@@ -1,0 +1,142 @@
+@model StationeryWeek3.Mvc.ViewModels.DataHealthViewModel
+
+@{
+    ViewData["Title"] = "Data Health";
+}
+
+<h2 class="mb-4">EF Core Data Health</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Check</th>
+            <th>Result</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>Database Connected</td>
+            <td>@Model.DatabaseConnected</td>
+            <td>
+                @if (Model.DatabaseConnected)
+                {
+                    <span class="badge bg-success">OK</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">FAILED</span>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Seed Data Loaded</td>
+            <td>@Model.SeedDataAvailable</td>
+            <td>
+                @if (Model.SeedDataAvailable)
+                {
+                    <span class="badge bg-success">OK</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">FAILED</span>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Tracking Implemented</td>
+            <td>@Model.TrackingImplemented</td>
+            <td>
+                @if (Model.TrackingImplemented)
+                {
+                    <span class="badge bg-success">OK</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">FAILED</span>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>AsNoTracking Implemented</td>
+            <td>@Model.AsNoTrackingImplemented</td>
+            <td>
+                @if (Model.AsNoTrackingImplemented)
+                {
+                    <span class="badge bg-success">OK</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">FAILED</span>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <td>Transaction Implemented</td>
+            <td>@Model.TransactionImplemented</td>
+            <td>
+                @if (Model.TransactionImplemented)
+                {
+                    <span class="badge bg-success">OK</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">FAILED</span>
+                }
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<hr />
+
+<h3 class="mb-3">Database Statistics</h3>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Total Stationeries</h5>
+                <h2>@Model.TotalStationeries</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Total Categories</h5>
+                <h2>@Model.TotalCategories</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Total Brands</h5>
+                <h2>@Model.TotalBrands</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5>Low Stock Count</h5>
+                <h2>@Model.LowStockCount</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
