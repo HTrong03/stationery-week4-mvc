@@ -27,11 +27,13 @@ public class StationeriesController : Controller
                 Brand = x.Brand?.Name ?? "",
                 Price = x.Price,
                 Quantity = x.Quantity,
-                MinStock = x.MinStock
+                MinStock = x.MinStock,
+
+                StockStatus = _service.GetStockStatus(x)
             })
             .ToList();
 
-        return View(items);
+        return View(items); 
     }
 
     public IActionResult Detail(int id)
@@ -169,7 +171,7 @@ public class StationeriesController : Controller
     }
 
     private static StationeryListItemViewModel ToListItemViewModel(
-        Stationery item)
+    Stationery item)
     {
         return new StationeryListItemViewModel
         {
@@ -180,7 +182,8 @@ public class StationeriesController : Controller
             Brand = item.Brand?.Name ?? "",
             Price = item.Price,
             Quantity = item.Quantity,
-            MinStock = item.MinStock
+            MinStock = item.MinStock,
+
         };
     }
 
@@ -220,5 +223,9 @@ public class StationeriesController : Controller
                 maxPrice);
 
         return View(result);
+    }
+    public IActionResult CreateProduct()
+    {
+        return View();
     }
 }

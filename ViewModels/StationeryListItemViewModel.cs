@@ -17,16 +17,7 @@ public class StationeryListItemViewModel
 
     public string InventoryValueText => $"{InventoryValue:N0} VND";
 
-    public string StockStatus
-    {
-        get
-        {
-            if (Quantity >= 30) return "Tồn kho cao";
-            if (Quantity <= 0) return "Hết hàng";
-            if (Quantity <= MinStock) return "Cần nhập thêm";
-            return "Còn hàng";
-        }
-    }
+    public string StockStatus { get; set; } = "";
 
     public string StockStatusClass
     {

@@ -1,0 +1,69 @@
+@model List<StationeryWeek3.Mvc.Models.Stationery>
+
+@{
+    ViewData["Title"] = "Lọc văn phòng phẩm";
+}
+
+<h2>Lọc văn phòng phẩm</h2>
+
+<form method="get" asp-action="Filter">
+
+    <div class="mb-3">
+        <label>Category Id</label>
+        <input type="number"
+               name="categoryId"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Giá thấp nhất</label>
+        <input type="number"
+               name="minPrice"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Giá cao nhất</label>
+        <input type="number"
+               name="maxPrice"
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Lọc
+    </button>
+
+</form>
+
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("N0") VNĐ</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+
+        </tbody>
+
+    </table>
+}

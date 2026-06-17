@@ -23,4 +23,5 @@ public interface IStationeryService
         int? categoryId,
         decimal? minPrice,
         decimal? maxPrice);
+    string GetStockStatus(Stationery item);
 }

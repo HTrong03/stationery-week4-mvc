@@ -222,3 +222,4 @@ D:\ToanTin\LT ASP.NET\Lab\StationeryWeek3\StationeryWeek3.Mvc\bin\Debug\net10.0\
 D:\ToanTin\LT ASP.NET\Lab\StationeryWeek3\StationeryWeek3.Mvc\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\ToanTin\LT ASP.NET\Lab\StationeryWeek3\StationeryWeek3.Mvc\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\ToanTin\LT ASP.NET\Lab\StationeryWeek3\StationeryWeek3.Mvc\obj\Debug\net10.0\Statione.AD62D55B.Up2Date
+D:\ToanTin\LT ASP.NET\Lab\StationeryWeek3\StationeryWeek3.Mvc\obj\Debug\net10.0\StationeryWeek3.Mvc.sourcelink.json

@@ -101,4 +101,19 @@ public class StationeryService : IStationeryService
             minPrice,
             maxPrice);
     }
+
+    public string GetStockStatus(Stationery item)
+    {
+        if (item.Quantity >= 30)
+            return "Tồn kho cao";
+
+        if (item.Quantity <= 0)
+            return "Hết hàng";
+
+        if (item.Quantity <= _settings.LowStockThreshold)
+            return "Cần nhập thêm";
+
+        return "Còn hàng";
+    }
+
 }
